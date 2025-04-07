@@ -33,6 +33,7 @@ The Model Context Protocol (MCP) is a protocol for managing context between AI m
    API_KEY=your_api_key_here
    MODEL_ENDPOINT=http://localhost:8000/v1/completions
    CONTEXT_DB_PATH=./data/context_db.json
+   MODEL_TYPE=mistral
    ```
 4. Start the server:
    ```
@@ -78,6 +79,22 @@ By default, context data is stored in a JSON file at `./data/context_db.json`. Y
 ## Model Integration
 
 The server is designed to work with any AI model that supports a compatible API. Configure the model endpoint in the `.env` file.
+
+### Supported Model Types
+
+The server supports different model types through the `MODEL_TYPE` environment variable:
+
+- `mistral` - For Mistral AI models
+- `openai` - For OpenAI models
+- `anthropic` - For Anthropic models
+- `generic` - For other model providers
+
+## SSL Certificate Verification
+
+For development purposes, SSL certificate verification is disabled by default. In production environments, you should:
+
+1. Either provide proper certificates
+2. Or remove the `rejectUnauthorized: false` option in `modelManager.js`
 
 ## Example Usage
 
