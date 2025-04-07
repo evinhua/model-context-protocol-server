@@ -6,6 +6,7 @@
 
 const axios = require('axios');
 const dotenv = require('dotenv');
+const https = require('https');  // Added for SSL certificate handling
 
 dotenv.config();
 
@@ -92,8 +93,11 @@ async function queryModel(prompt, context = {}, options = {}) {
       headers['Authorization'] = `Bearer ${API_KEY}`;
     }
     
-    // Send request to model endpoint
-    const response = await axios.post(MODEL_ENDPOINT, payload, { headers });
+    // Send request to model endpoint with SSL verification disabled for development
+    const response = await axios.post(MODEL_ENDPOINT, payload, { 
+      headers,
+      httpsAgent: new https.Agent({ rejectUnauthorized: false }) // Disable SSL verification for development
+    });
     
     // Log the response for debugging
     console.log('Received response:', JSON.stringify(response.data, null, 2));
