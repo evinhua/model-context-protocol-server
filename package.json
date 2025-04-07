@@ -1,0 +1,21 @@
+{
+  "name": "model-context-protocol-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["MCP", "model", "context", "protocol", "AI", "LLM"],
+  "author": "",
+  "license": "ISC",
+  "description": "A Model Context Protocol (MCP) server for managing context between AI models and applications",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  }
+}
